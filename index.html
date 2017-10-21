@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+    <title>PublicFix</title>   
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>    
+    <link rel="icon" type="image/png" href="https://cdn2.iconfinder.com/data/icons/ballicons-2-free/100/wrench-512.png">
+    <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.4.0/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.4.0/firebaseui.css" />
+
+</head>
+
+<body>
+  
+<div class="container text-center">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="title-wrapper">
+        <div class="title"></div>
+        <p class="slogan">See it. Say it. Fix it.</p> 
+      </div>  
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="col-sm-12" id="main">
+        <div class="btn">
+          <div class="btn-front">Report an Issue</div>
+          <div class="btn-back">
+              <p>PublicFix is a public platform for reporting <span>non-urgent</span> issues only.<br>
+              In case of emergency, call 911.</p>
+              <button class="confirm">I confirm that this is <span>not</span> an emergency.<br>Take me to the login screen.</button>
+          </div>
+        </div>
+        <div id="firebaseui-auth-container"></div>
+      </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12" id="footer">
+        <p>&copy; Team Resig 2017</p>
+    </div>
+  </div>
+
+</div><!-- /.container -->
+
+<!-- Not affected by grid layout -->
+
+  <div class="login-background">
+    <div class="login-overlay"></div>
+  </div>
+  
+  <div class="loading-overlay" id="loading">
+          <img src="assets/images/ajax-loader.gif" alt="loading-gif" class ="loading-gif">
+  </div>
+
+
+  <div id="chart">
+      <nav>
+        <h1>PublicFix</h1>
+        <a href="chart.html">Chart</a>
+        <br>
+        <br>
+        <p>INSTRUCTIONS:</p>
+        <br>
+        <p>Place a marker</p>
+        <br>
+        <p>Click marker to select categories</p>
+      </nav>
+      </div>
+
+  <div id="map"></div>
+  
+    <div class="mirko"></div>
+
+  <div id="form">
+      <table class="mapPopup">
+        <tr>
+          <td>Category:</td>
+          <td>
+            <select id="issueType">
+                <option value="choose" selected>Choose a Category</option>s
+                <option value="Pothole">Pothole</option>
+                <option value="Standing Water">Standing Water</option>
+                <option value="Sign Issue">Sign Issue</option>
+                <option value="Light Issue">Light Issue</option>
+                <option value="Traffic Suggestion">Traffic Suggestion</option>
+                <option value="Roadkill">Roadkill</option>
+            </select>            
+          </td>
+        </tr>
+        <tr>
+          <td>Issue to Report: </td>
+          <td class=“issueDet”><textarea class=“msg” maxlength=“300” cols="30" rows="5" onkeyup="charRemain(this)" id="issueDet"
+            placeholder='Please be as specific as possible in describing the issue and its location.'></textarea><span id="counter">300</span></td></tr>
+          <tr>
+            <td>
+            </td>
+            <td class=“char-left”></td>
+          </tr>
+        <tr>
+          <td></td>
+          <td>
+              <button type="submit" class="btn btn"
+              id="addIssueBtn">Submit</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+  <script src="https://www.gstatic.com/firebasejs/4.5.1/firebase.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>  
+  <script type="text/javascript" src="assets/js/map.js"></script>
+  <script type="text/javascript" src="assets/js/firebase.js"></script>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9OugGSaTwf17_kutUI5qLVjtw-QvdfTk&callback=initMap">
+  </script>
+</body>
+</html>
